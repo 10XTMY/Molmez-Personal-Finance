@@ -11,6 +11,7 @@ The tool allows users to upload a CSV file of their financial data and explore i
 6. Click the "Upload CSV" button and select the CSV file containing your financial data.
 7. Click the "Analytics" button to process the data and explore it on the next page.
 8. If you do not have your own CSV balance sheet to upload, you can still explore the tool by clicking on the "Analytics" button without uploading a file. This will load a test data set to demonstrate how the application works.
+- Note: There is a tool for generating test data in the tools folder
 
 # Features
 The personal finance data analysis tool provides the following features:
