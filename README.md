@@ -2,6 +2,9 @@
 This is a personal finance data analysis tool built using Python version 3.7.
 The tool allows users to upload a CSV file of their financial data and explore it through a web interface.
 
+# Live Demo
+[Molmez Personal Finance App](https://0xtommyofficial.pythonanywhere.com)
+
 # How to use the tool
 1. Clone the repository to your local machine.
 2. Ensure that you have Python version 3.7 or higher installed on your machine.
