@@ -1,0 +1,468 @@
+/*Bank Statement Analysis Dash App*/
+
+/*This is a Plotly Dash app that analyses bank statements and provides various visualizations to help users understand*/
+/*their spending habits.*/
+
+/*It uses the following technologies and libraries:*/
+/*- Python 3.7*/
+/*- Plotly Dash*/
+/*- Pandas*/
+/*- Numpy*/
+
+/*The app is intended for educational or demonstration purposes and should not be used in a production environment*/
+/*without further testing and security measures.*/
+
+/*To run the app, you will need to have Python and the required libraries installed.*/
+/*You can run the app by running the command 'python, python3, or py (depending on your setup) index.py'.*/
+
+/*This project is released under the MIT License.*/
+
+/*Author: 0xtommyOfficial, Molmez LTD (www.molmez.io)*/
+/*Date Published: 30 January 2023*/
+
+:root {
+    color-scheme: light only;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Segoe UI, serif;
+    /*color: #707070;*/
+    color: #fff;
+}
+html {
+ background-color: #212121;
+}
+#bank-graph {
+    border: 5px solid lightseagreen !important;
+}
+#bank-graph:hover {
+    border-color: lightgreen;
+}
+.main-frame {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #212121;
+}
+.outer-frame {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    background-color: #212121;
+}
+.right-column-frame {
+    background-color: #212121;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    justify-items: center;
+}
+.dashboard-title {
+    padding-left: 50px;
+    padding-bottom: 0;
+    background-color: #212121;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+.main-graph-frame {
+    padding-left: 20px;
+    padding-right: 30px;
+    background-color: #212121;
+}
+.main-graph-figure {
+    height: 85vh;
+    width: 80vw;
+    border: 2px solid #707070;
+}
+.multi-drop-down {
+    max-height: 25px;
+    padding-bottom: 35px;
+}
+.multi-drop-down.Select.dcc_control.is-open {
+    max-height: 100%;
+    overflow-y:visible;
+}
+.multi-drop-down.Select.dcc_control {
+    max-height: 10px;
+    overflow-y:auto;
+}
+.date-range-div {
+    display: flex;
+    justify-content: center;
+}
+.range-title-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.graph-type-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.keyword-filter-input {
+    width: 100%;
+}
+input {
+    background: antiquewhite;
+    border: 3px solid lightseagreen;
+}
+input:hover {
+    border-color: lightgreen;
+}
+input[type="checkbox"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  /* Remove most all native input styles */
+  appearance: none;
+  /* For iOS < 15 */
+  background-color: white;
+  /* Not removed via appearance */
+  margin: 0;
+
+  font: inherit;
+  color: lightseagreen;
+  width: 1.15rem;
+  height: 1.15rem;
+  border: 0.20rem solid currentColor;
+  border-radius: 0.25rem;
+  transform: translateY(-0.075rem);
+
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em black;
+  /* Windows High Contrast Mode */
+  background-color: white;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+input[type="checkbox"]:hover {
+  border-color: lightgreen;
+}
+
+/*input[type="checkbox"]:focus {*/
+/*  outline: max(2px, 0.15em) solid lightseagreen;*/
+/*  outline-offset: max(2px, 0.15em);*/
+/*}*/
+
+input[type="checkbox"]:disabled {
+  --form-control-color: purple;
+
+  color: grey;
+  cursor: not-allowed;
+}
+.savings-filter-input {
+    width: 100%;
+}
+.in-out-buttons-div {
+    width: 100%;
+}
+.in-out-checklist {
+    /*background: white;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 700;
+    color: #fff;
+    width: 100%;
+}
+.min-max-inputs-div {
+    display: flex;
+    justify-content: center;
+}
+.output-container {
+    padding-top: 10px;
+    font-family: Segoe UI, serif;
+    font-size: 1rem;
+    display: grid;
+    color: #fff;
+}
+.graph-select-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    padding: 5px 10px;
+    color: white;
+    background: black;
+    border: 3px solid lightseagreen;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+}
+.graph-select-button:hover {
+    border-color: lightgreen;
+}
+.container {
+    background: #212121;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.table-control-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.top-list-length-input {
+    background: antiquewhite;
+    text-align: center;
+}
+.tables-outer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.table-title {
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+}
+.table {
+    margin: 15px;
+}
+.dash-spreadsheet-menu {
+    display: flex;
+    padding: 5px 0 5px 5px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.export {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: -15px 0 0;
+    padding: 5px 10px 6px;
+    color: white;
+    background: black;
+    border: 4px solid lightseagreen;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 700;
+    box-shadow: -3px 3px black;
+}
+.export:hover {
+    /*color: black;*/
+    cursor: pointer;
+    border-color: lightgreen;
+}
+.circle-outer {
+    width: 640px;
+    height: 640px;
+    background: #fff1d2ff;
+    -moz-border-radius: 320px;
+    -webkit-border-radius: 320px;
+    border-radius: 320px;
+    position: relative;
+}
+.circle-inner {
+    width: 600px;
+    height: 600px;
+    background: #787878ff;
+    -moz-border-radius: 300px;
+    -webkit-border-radius: 300px;
+    border-radius: 300px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 3%;
+    left: 3%;
+}
+.body-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 8%;
+}
+.text-main {
+    position: relative;
+    width: 80%;
+    font-family: 'Libre Franklin', sans-serif;
+    color: white;
+    font-weight: 700;
+    font-size: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 36px;
+    margin-top: 7px;
+}
+.text-main-bottom {
+    position: relative;
+    width: 80%;
+    font-family: 'Libre Franklin', sans-serif;
+    color: white;
+    font-weight: 700;
+    font-size: 1.75rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 30px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+.csv-output-title {
+    /*font-family: 'Libre Franklin', sans-serif;*/
+    font-family: Segoe UI, serif;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 0;
+}
+.csv-output {
+    /*font-family: 'Libre Franklin', sans-serif;*/
+    font-family: Segoe UI, serif;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+}
+.button-select {
+    width: 220px;
+    height: 80px;
+    background: #fff1d2ff;
+    -moz-border-radius: 220px;
+    -webkit-border-radius: 80px;
+    border-color: black;
+    border-radius: 220px;
+    border-style: solid;
+    border-width: medium;
+    position: relative;
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    align-items: center;
+    cursor: pointer;
+}
+.text-status {
+    /*display: none;*/
+    color: white;
+    position: relative;
+    width: 80%;
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+.button-select:hover {
+    background: #212121;
+    border-color: #fff1d2ff;
+    color: white;
+}
+.button-analytics {
+    color: black;
+    width: 150px;
+    height: 40px;
+    text-decoration: none;
+    background: #fff1d2ff;
+    -moz-border-radius: 200px;
+    -webkit-border-radius: 40px;
+    border-color: black;
+    border-radius: 200px;
+    border-width: medium;
+    border-style: solid;
+    position: relative;
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+}
+.button-analytics:hover {
+    background: #212121;
+    border-color: #fff1d2ff;
+    color: white;
+}
+.logo-card {
+    position: absolute;
+    top: 2%;
+    left: 39%;
+}
+.logo-image {
+    width: 125px;
+    position: absolute;
+}
+.logo-card .logo-image-hover {
+    display: none;
+    width: 125px;
+    position: absolute;
+}
+.logo-card:hover .logo-image-hover {
+    display: inline;
+}
+.DateInput_input_1{
+    cursor: pointer;
+    background: antiquewhite;
+}
+.dt-table-container__row {
+    padding-top: 2px;
+}
+.dash-cell {
+    background: antiquewhite !important;
+}
+.dash-header {
+    background: darkslateblue !important;
+}
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner table {
+    --accent: greenyellow;
+}
+.column-header-name {
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    /*font-family: Segoe UI, serif;*/
+    /*font-weight: 600;*/
+    /*font-size: 1rem;*/
+}
+tbody {
+    border: 5px solid lightseagreen;
+    box-shadow: -5px 5px black;
+}
+.DateRangePickerInput__withBorder {
+    background: antiquewhite;
+    border: 5px solid lightseagreen;
+}
+.DateRangePickerInput__withBorder:hover {
+    border-color: lightgreen;
+}
