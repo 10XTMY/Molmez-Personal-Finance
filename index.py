@@ -23,7 +23,7 @@ Run this script to launch app
 -- Select a CSV file with the layout: "Date,Details,Amount" eg. "DD/MM/YYYY,TRANSACTION NAME,-45.76"
 -- Click View Analytics
 
-Author: 0xtommyOfficial, Molmez LTD (www.molmez.io)
+Author: @10XTMY, Molmez LTD (www.molmez.io)
 Date Published: 30 January 2023
 """
 from dash import dcc, html, Input, Output, callback

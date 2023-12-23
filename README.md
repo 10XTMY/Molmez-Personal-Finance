@@ -36,4 +36,4 @@ These packages are listed in the requirements.txt file and can be installed usin
 # Contributing
 If you would like to contribute to the personal finance data analysis tool, please fork the repository and create a pull request with your changes. I welcome contributions and am happy to review any changes.
 
-[ 0xtommyOfficial, molmez.io ]
+[ @10XTMY, www.molmez.io ]

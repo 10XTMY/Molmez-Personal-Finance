@@ -18,7 +18,7 @@ You can run the app by running the command 'python, python3, or py (depending on
 
 This project is released under the MIT License.
 
-Author: 0xtommyOfficial, Molmez LTD (www.molmez.io)
+Author: @10XTMY, Molmez LTD (www.molmez.io)
 Date Published: 30 January 2023
 
 This upload page is displayed as the main page when the app loads in the browser
