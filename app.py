@@ -1,5 +1,5 @@
 """
-Bank Statement Analysis Dash App
+Bank Statement Analysis Plotly Dash App
 
 This is a Plotly Dash app that analyses bank statements and provides various visualizations to help users understand
 their spending habits.
@@ -29,7 +29,9 @@ import dash
 external_stylesheets = ['https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@700;900&display=swap']
 
 # meta_tags are required for the app layout to be mobile responsive
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets, suppress_callback_exceptions=True,
+app = dash.Dash(__name__,
+                external_stylesheets=external_stylesheets,
+                suppress_callback_exceptions=True,
                 meta_tags=[{'name': 'viewport',
                             'content': 'width=device-width, initial-scale=1.0'}]
                 )

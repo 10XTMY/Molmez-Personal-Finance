@@ -1,5 +1,5 @@
 """
-Bank Statement Analysis Dash App
+Bank Statement Analysis Plotly Dash App
 
 This is a Plotly Dash app that analyses bank statements and provides various visualizations to help users understand
 their spending habits.
@@ -88,11 +88,11 @@ def display_page(contents, filename, last_modified):
         df_dict = result[1].reset_index().to_dict('records')
         return 'loaded csv file', df_dict, '', ''
     else:
-        example_string = 'Date,Details,Amount\n29/11/2022,John Spartan,32.95\n' \
-                         '29/11/2022,John Spartan,-45.90\n29/11/2022,Simon Pheonix,-11.68\n' \
-                         '29/11/2022,Mason Storm,17.19\n29/11/2022,Edgar Friendly,-8.32\n' \
-                         '28/11/2022,Colonel Kurtz,-3.99\n28/11/2022,Travis Bickle,22.89\n' \
-                         '28/11/2022,Ben Richards,-3.97\n28/11/2022,Harley Stone,-6.18\n' \
-                         '28/11/2022,Nada,140.00\n28/11/2022,Leon,-1.20\n' \
-                         '28/11/2022,Douglas Quaid,-2.49\n28/11/2022,John Matrix,-1.59'
+        example_string = 'Date,Details,Amount\n29/11/2023,John Spartan,32.95\n' \
+                         '29/11/2023,John Spartan,-45.90\n29/11/2023,Simon Pheonix,-11.68\n' \
+                         '29/11/2023,Mason Storm,17.19\n29/11/2023,Edgar Friendly,-8.32\n' \
+                         '28/11/2023,Colonel Kurtz,-3.99\n28/11/2023,Travis Bickle,22.89\n' \
+                         '28/11/2023,Ben Richards,-3.97\n28/11/2023,Harley Stone,-6.18\n' \
+                         '28/11/2023,Nada,140.00\n28/11/2023,Leon,-1.20\n' \
+                         '28/11/2023,Douglas Quaid,-2.49\n28/11/2023,John Matrix,-1.59'
         return result[1], '', 'CSV Example:', example_string

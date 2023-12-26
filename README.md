@@ -6,6 +6,7 @@ The tool allows users to upload a CSV file of their financial data and explore i
 [Molmez Personal Finance App](https://0xtommyofficial.pythonanywhere.com)
 
 # How to use the tool
+
 1. Clone the repository to your local machine.
 2. Ensure that you have Python version 3.7 or higher installed on your machine.
 3. Install the required packages by running pip install -r requirements.txt.
@@ -15,6 +16,11 @@ The tool allows users to upload a CSV file of their financial data and explore i
 7. Click the "Analytics" button to process the data and explore it on the next page.
 8. If you do not have your own CSV balance sheet to upload, you can still explore the tool by clicking on the "Analytics" button without uploading a file. This will load a test data set to demonstrate how the application works.
 - Note: There is a tool for generating test data in the tools folder
+
+## Video Demonstration:
+
+[<img src="https://img.youtube.com/vi/JDXuFCzAADk/maxresdefault.jpg" width="50%">](https://www.youtube.com/watch?v=JDXuFCzAADk)
+
 
 # Features
 The personal finance data analysis tool provides the following features:

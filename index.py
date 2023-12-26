@@ -1,5 +1,5 @@
 """
-Bank Statement Analysis Dash App
+Bank Statement Analysis Plotly Dash App
 
 This is a Plotly Dash app that analyses bank statements and provides various visualizations to help users understand
 their spending habits.
@@ -33,7 +33,9 @@ from apps import analytics, upload
 
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
-    html.Div(id='page-content', children=[]),
+    html.Div(id='page-content', children=[
+
+    ]),
     dcc.Store(id='data-set', storage_type='session')
 ])
 
