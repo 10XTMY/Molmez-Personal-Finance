@@ -37,6 +37,7 @@ The tool requires the following Python packages:
 - Pandas
 - Plotly
 - Dash
+
 These packages are listed in the requirements.txt file and can be installed using pip.
 
 # Contributing
