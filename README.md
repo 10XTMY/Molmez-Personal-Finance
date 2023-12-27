@@ -18,8 +18,8 @@ The tool allows users to upload a CSV file of their financial data and explore i
 - Note: There is a tool for generating test data in the tools folder
 
 ## Screenshot of data structure:
+<img src="https://i.ibb.co/6y6CJYV/Screenshot-2023-12-27-183030.png" alt="Screenshot of Personal Finance Data Analysis Tool" width="550"/>
 
-![Data Structure](https://i.ibb.co/6y6CJYV/Screenshot-2023-12-27-183030.png)
 
 ## Video Demonstration:
 
