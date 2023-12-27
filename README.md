@@ -23,7 +23,7 @@ The tool allows users to upload a CSV file of their financial data and explore i
 
 ## Video Demonstration:
 
-[<img src="https://img.youtube.com/vi/JDXuFCzAADk/maxresdefault.jpg" width="50%">](https://www.youtube.com/watch?v=JDXuFCzAADk)
+[<img src="https://img.youtube.com/vi/JDXuFCzAADk/maxresdefault.jpg" width="75%">](https://www.youtube.com/watch?v=JDXuFCzAADk)
 
 
 # Features
