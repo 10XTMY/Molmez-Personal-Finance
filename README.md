@@ -17,6 +17,10 @@ The tool allows users to upload a CSV file of their financial data and explore i
 8. If you do not have your own CSV balance sheet to upload, you can still explore the tool by clicking on the "Analytics" button without uploading a file. This will load a test data set to demonstrate how the application works.
 - Note: There is a tool for generating test data in the tools folder
 
+## Screenshot of data structure:
+
+![Data Structure](https://i.ibb.co/6y6CJYV/Screenshot-2023-12-27-183030.png)
+
 ## Video Demonstration:
 
 [<img src="https://img.youtube.com/vi/JDXuFCzAADk/maxresdefault.jpg" width="50%">](https://www.youtube.com/watch?v=JDXuFCzAADk)
