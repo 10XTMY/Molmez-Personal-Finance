@@ -46,9 +46,12 @@ html {
     flex-direction: row;
     justify-content: space-evenly;
     background-color: #212121;
+    width: 100%;
+    height: auto;
 }
 .outer-frame {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     height: 100%;
     width: 100%;
     background-color: #212121;
@@ -67,16 +70,16 @@ html {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
+    width: 100%;
 }
 .main-graph-frame {
     padding-left: 20px;
     padding-right: 30px;
     background-color: #212121;
+    flex: 3;
 }
 .main-graph-figure {
-    height: 85vh;
-    width: 80vw;
-    border: 2px solid #707070;
+    /*border: 2px solid #707070;*/
 }
 .multi-drop-down {
     max-height: 25px;
